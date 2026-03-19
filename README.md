@@ -47,4 +47,4 @@ npm run dev
 
 例:
 
-`CONTACT_TO_EMAIL=katagase@ktgs.llc,doi@ktgs.llc,tanaka@ktgs.llc`
+`CONTACT_TO_EMAIL=recipient1@example.com,recipient2@example.com`
