@@ -1,0 +1,33 @@
+{
+  "name": "fujirag",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/katagase/fujirag.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/katagase/fujirag/issues"
+  },
+  "homepage": "https://github.com/katagase/fujirag#readme",
+  "description": "FUJI RAG LP",
+  "dependencies": {
+    "next": "^16.2.0",
+    "nodemailer": "^8.0.3",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4"
+  },
+  "devDependencies": {
+    "eslint": "^9.39.4",
+    "eslint-config-next": "^16.2.0"
+  }
+}

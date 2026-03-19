@@ -1,0 +1,118 @@
+"use client";
+
+import { useEffect } from "react";
+import Script from "next/script";
+import { CtaButtons } from "@/components/lp/common/CtaButtons";
+
+export function CtaSection() {
+  useEffect(() => {
+    const timerId = setInterval(() => {
+      const response = document.getElementById("g-recaptcha-response");
+      if (response && String(response.value ?? "").trim() !== "") {
+        return;
+      }
+
+      const captchaInput = document.getElementsByName("captcha_settings")[0];
+      if (!captchaInput) {
+        return;
+      }
+
+      try {
+        const currentValue = captchaInput.value || "{}";
+        const parsed = JSON.parse(currentValue);
+        parsed.ts = JSON.stringify(new Date().getTime());
+        captchaInput.value = JSON.stringify(parsed);
+      } catch {
+        // Ignore malformed values and keep form usable.
+      }
+    }, 500);
+
+    return () => clearInterval(timerId);
+  }, []);
+
+  return (
+    <section className="section-block cta-section" id="contact-form">
+      <Script src="https://www.google.com/recaptcha/api.js" strategy="afterInteractive" />
+      <div className="container cta-wrapper">
+        <div>
+          <p className="eyebrow">最終CTA</p>
+          <h2>
+            まずは無料デモで
+            <br className="title-break-desktop" />
+            ご確認ください
+          </h2>
+          <p className="section-description">
+            オンプレ対応可・個別相談可・PoC相談可。要件に合わせて最適な進め方をご提案しています。
+          </p>
+          <CtaButtons />
+        </div>
+        <form
+          className="panel contact-form"
+          action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00DgC000001jUaN"
+          method="POST"
+        >
+          <input
+            type="hidden"
+            name="captcha_settings"
+            value='{"keyname":"FUJIRAG","fallback":"true","orgId":"00DgC000001jUaN","ts":""}'
+          />
+          <input type="hidden" name="oid" value="00DgC000001jUaN" />
+          <input type="hidden" name="retURL" value="https://fujirag.voitex.biz/thanks" />
+
+          <h3>お問い合わせフォーム</h3>
+          <label htmlFor="company">会社名</label>
+          <input id="company" maxLength={40} name="company" type="text" autoComplete="organization" required />
+
+          <label htmlFor="state">都道府県</label>
+          <input id="state" maxLength={20} name="state" type="text" autoComplete="address-level1" />
+
+          <label htmlFor="city">市区郡</label>
+          <input id="city" maxLength={40} name="city" type="text" autoComplete="address-level2" />
+
+          <label htmlFor="phone">電話</label>
+          <input id="phone" maxLength={40} name="phone" type="tel" autoComplete="tel" />
+
+          <label htmlFor="last_name">姓</label>
+          <input id="last_name" maxLength={80} name="last_name" type="text" autoComplete="family-name" required />
+
+          <label htmlFor="first_name">名</label>
+          <input id="first_name" maxLength={40} name="first_name" type="text" autoComplete="given-name" />
+
+          <label htmlFor="email">メールアドレス</label>
+          <input id="email" maxLength={80} name="email" type="email" autoComplete="email" required />
+
+          <label htmlFor="description">説明</label>
+          <textarea
+            id="description"
+            name="description"
+            rows={4}
+            placeholder="お問い合わせ内容をご入力ください"
+          />
+
+          <label className="consent-row" htmlFor="privacyConsent">
+            <input id="privacyConsent" type="checkbox" required />
+            <span>
+              <a
+                href="https://ktgs.llc/privacy-policy/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="policy-link"
+              >
+                プライバシーポリシー
+              </a>
+              に同意のうえ送信します。
+            </span>
+          </label>
+          <p className="consent-note">
+            送信情報はお問い合わせ対応のため、Salesforce（Web-to-Lead）に連携されます。
+          </p>
+
+          <div className="g-recaptcha" data-sitekey="6LdDYY8sAAAAAGcK1HZxISrSpauIOBvc5jqFuiRk" />
+          <button type="submit" className="cta-button primary full">
+            送信する
+          </button>
+        </form>
+      </div>
+    </section>
+  );
+}
