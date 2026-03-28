@@ -9,12 +9,12 @@ export function ProblemSection() {
         <SectionHeader
           title={
             <>
-              その検索、
+              あなたの会社、
               <br className="title-break-desktop" />
-              本当に使えていますか？
+              こんなことが起きていませんか？
             </>
           }
-          description="検索が機能していても、業務で使える状態とは限らないケースがあります。"
+          description="情報を探す時間、属人化、セキュリティ不安が積み重なると、意思決定速度に差が出ます。"
           tone="tight"
         />
         <ul className="problem-grid">
@@ -25,6 +25,23 @@ export function ProblemSection() {
             </li>
           ))}
         </ul>
+        <div className="panel checklist-panel">
+          <p className="check-title">3つ以上当てはまる場合、FUJI RAGの適用余地があります。</p>
+          <ul>
+            <li>情報を探すのに毎日時間を使っている</li>
+            <li>「担当者に聞かないと分からない」が多発している</li>
+            <li>クラウドAIをセキュリティ理由で採用できない</li>
+            <li>文書整理・移行の工数が確保できない</li>
+          </ul>
+        </div>
+        <div className="panel cost-panel">
+          <h3>情報探索コストの試算（例）</h3>
+          <p>
+            社員50名 × 1時間/日 × 250日 × 時給3,000円 = 年間 約3,750万円。
+            <br />
+            Starter月額10〜15万円と比較しても、探索工数削減の効果が導入価値に直結します。
+          </p>
+        </div>
       </div>
     </section>
   );

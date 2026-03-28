@@ -1,25 +1,43 @@
 import { SectionHeader } from "@/components/lp/common/SectionHeader";
+import { comparisonRows } from "@/lib/lp-content";
 
 export function ExpansionSection() {
   return (
-    <section className="section-block">
+    <section className="section-block subtle" id="comparison">
       <div className="container">
         <SectionHeader
           title={
             <>
-              さらに、
+              なぜFUJI RAGなのか、
               <br className="title-break-desktop" />
-              業務改善へ
+              他の選択肢と比べる
             </>
           }
-          tone="tight"
+          description="SaaS型・SI個別開発・検索ツールとの違いを、導入観点で整理します。"
         />
-        <div className="panel">
-          <p>
-            FUJI RAGは、通話分析AI「ボイテキ2！」と連携することで、通話の要点・感情変化・リスク兆候の分析結果をもとに、
-            関連ナレッジ提示や改善支援まで拡張できます。オンプレ運用やSSO連携にも対応し、業務導線を分断せずに活用できます。
-          </p>
-          <p className="note">まずはFUJI RAGの導入を起点に、将来的な統合をご検討いただけます。</p>
+        <div className="panel comparison-table-wrap">
+          <table className="comparison-table">
+            <thead>
+              <tr>
+                <th>比較項目</th>
+                <th>FUJI RAG</th>
+                <th>SaaS型RAG</th>
+                <th>SI個別開発</th>
+                <th>検索ツール</th>
+              </tr>
+            </thead>
+            <tbody>
+              {comparisonRows.map((row) => (
+                <tr key={row.label}>
+                  <td>{row.label}</td>
+                  <td>{row.fuji}</td>
+                  <td>{row.saas}</td>
+                  <td>{row.si}</td>
+                  <td>{row.search}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       </div>
     </section>

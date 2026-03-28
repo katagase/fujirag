@@ -1,22 +1,39 @@
 import { SectionHeader } from "@/components/lp/common/SectionHeader";
 import { LineIcon } from "@/components/lp/common/LineIcon";
-import { reasonItems } from "@/lib/lp-content";
-
-const reasonIcons = ["server", "users", "shield", "doc", "search", "link"];
+import { fitItems, notFitItems } from "@/lib/lp-content";
 
 export function FeatureGridSection() {
   return (
-    <section className="section-block subtle">
+    <section className="section-block" id="fit">
       <div className="container">
-        <SectionHeader title="企業で使える理由" />
-        <ul className="icon-grid">
-          {reasonItems.map((item, index) => (
-            <li key={item} className="panel icon-item">
-              <LineIcon name={reasonIcons[index] ?? "shield"} className="line-icon sm" />
-              <p>{item}</p>
-            </li>
-          ))}
-        </ul>
+        <SectionHeader
+          title="FUJI RAGが向いている会社"
+          description="インフラ要件・組織課題の観点で、適合度を確認できます。"
+        />
+        <div className="fit-grid">
+          <article className="panel">
+            <h3>向いている条件</h3>
+            <ul className="fit-list">
+              {fitItems.map((item) => (
+                <li key={item}>
+                  <LineIcon name="shield" className="line-icon sm" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </article>
+          <article className="panel">
+            <h3>向かないケース</h3>
+            <ul className="fit-list caution">
+              {notFitItems.map((item) => (
+                <li key={item}>
+                  <LineIcon name="alert" className="line-icon sm" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </article>
+        </div>
       </div>
     </section>
   );

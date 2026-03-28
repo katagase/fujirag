@@ -1,20 +1,20 @@
 import { SectionHeader } from "@/components/lp/common/SectionHeader";
-import { proofItems, voiceItems } from "@/lib/lp-content";
+import { proofItems } from "@/lib/lp-content";
 
 export function ProofSection() {
   return (
-    <section className="section-block proof-section" id="proof">
+    <section className="section-block proof-section" id="assurance">
       <div className="container">
         <SectionHeader
-          eyebrow="信頼性"
+          eyebrow="3つの安心"
           title={
             <>
-              現場導入を見据えた、
+              社内AI導入の「怖い」を、
               <br className="title-break-desktop" />
-              現実的な進め方
+              3つ全部消します。
             </>
           }
-          description="派手さではなく、運用に耐える設計と導入しやすさを重視する方針にしています。"
+          description="整理負荷・情報漏えい・回答信頼性の不安を、FUJI RAGは同時に解消します。"
           tone="balanced"
         />
 
@@ -23,18 +23,17 @@ export function ProofSection() {
             <article key={item.title} className="panel">
               <h3>{item.title}</h3>
               <p>{item.description}</p>
+              <ul>
+                {item.points.map((point) => (
+                  <li key={point}>{point}</li>
+                ))}
+              </ul>
             </article>
           ))}
         </div>
-
-        <div className="voice-grid">
-          {voiceItems.map((item) => (
-            <blockquote key={item.quote} className="panel voice-card">
-              <p className="voice-quote">&quot;{item.quote}&quot;</p>
-              <cite>{item.role}</cite>
-            </blockquote>
-          ))}
-        </div>
+        <p className="proof-cta-copy">
+          もっと詳しく見たい場合は、無料デモで実際の回答画面をご確認ください。
+        </p>
       </div>
     </section>
   );

@@ -3,6 +3,7 @@
 import { useEffect } from "react";
 import Script from "next/script";
 import { CtaButtons } from "@/components/lp/common/CtaButtons";
+import { finalEntryPoints } from "@/lib/lp-content";
 
 export function CtaSection() {
   useEffect(() => {
@@ -31,22 +32,32 @@ export function CtaSection() {
   }, []);
 
   return (
-    <section className="section-block cta-section" id="contact-form">
+    <section className="section-block cta-section" id="final-cta">
       <Script src="https://www.google.com/recaptcha/api.js" strategy="afterInteractive" />
       <div className="container cta-wrapper">
         <div>
           <p className="eyebrow">最終CTA</p>
           <h2>
-            まずは無料デモで
+            まずは、話を聞いてみてください。
             <br className="title-break-desktop" />
-            ご確認ください
+            費用も契約も、一切不要です。
           </h2>
           <p className="section-description">
-            オンプレ対応可・個別相談可・PoC相談可。要件に合わせて最適な進め方をご提案しています。
+            「デモだけ見たい」「文書作成を相談したい」「環境相談をしたい」どの入口でも歓迎します。
           </p>
+          <div className="entry-grid">
+            {finalEntryPoints.map((item) => (
+              <article key={item.title} className="panel entry-card">
+                <h3>{item.title}</h3>
+                <p>{item.body}</p>
+                <p className="entry-note">{item.note}</p>
+              </article>
+            ))}
+          </div>
           <CtaButtons />
         </div>
         <form
+          id="contact-form"
           className="panel contact-form"
           action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00DgC000001jUaN"
           method="POST"

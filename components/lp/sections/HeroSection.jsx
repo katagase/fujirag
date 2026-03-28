@@ -1,4 +1,6 @@
+import Image from "next/image";
 import { CtaButtons } from "@/components/lp/common/CtaButtons";
+import { LineIcon } from "@/components/lp/common/LineIcon";
 import { heroBadges } from "@/lib/lp-content";
 
 export function HeroSection() {
@@ -6,23 +8,35 @@ export function HeroSection() {
     <section className="hero section-block" id="hero">
       <div className="container hero-grid">
         <div className="hero-copy">
-          <p className="eyebrow">FUJI RAG</p>
+          <div className="hero-brand">
+            <Image
+              src="/fujirag_logo_hero.svg"
+              alt="FUJI RAG"
+              width={220}
+              height={64}
+              className="hero-logo"
+              priority
+            />
+          </div>
+          <p className="eyebrow">オンプレ対応・社内特化型 ナレッジAI</p>
           <h1>
-            社内文書を、探す時代は終わり。
+            ファイルサーバーが、
             <br className="title-break-desktop" />
-            AIが&quot;答え&quot;を出す。
+            答えを出す。
           </h1>
           <p className="lead">
-            オンプレ対応・AD連携・出典付き。
+            整理しなくていい。移行しなくていい。情報は漏れない。根拠は必ず出る。
             <br />
-            企業で使えるナレッジAI「FUJI RAG」
+            社内のファイルサーバー（NAS）をそのままAIに接続できます。
           </p>
           <CtaButtons />
+          <p className="hero-linkline">まず5分のデモを見る →</p>
           <ul className="badge-list">
             {heroBadges.map((badge) => (
               <li key={badge}>{badge}</li>
             ))}
           </ul>
+          <p className="hero-note">2026年3月19日より 無料PoC受付開始</p>
         </div>
         <div className="hero-visual" aria-hidden="true">
           <div className="product-window">
@@ -42,6 +56,23 @@ export function HeroSection() {
               <span>出典: 就業規則 3章2節</span>
               <span>出典: 人事通達 2026-04</span>
             </div>
+          </div>
+          <div className="hero-pillars">
+            <article className="panel">
+              <LineIcon name="server" className="line-icon sm" />
+              <h3>NASクロール</h3>
+              <p>既存ファイルをそのまま活用。整理・移行コストゼロ。</p>
+            </article>
+            <article className="panel">
+              <LineIcon name="shield" className="line-icon sm" />
+              <h3>権限制御</h3>
+              <p>AD連携で見せていい人だけに情報を表示。</p>
+            </article>
+            <article className="panel">
+              <LineIcon name="file" className="line-icon sm" />
+              <h3>出典表示</h3>
+              <p>全回答にファイル名・ページを明示して確認可能。</p>
+            </article>
           </div>
         </div>
       </div>

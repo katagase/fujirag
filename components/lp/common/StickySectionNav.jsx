@@ -4,15 +4,16 @@ import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 
 const SECTION_LINKS = [
-  { id: "hero", label: "概要" },
-  { id: "proof", label: "信頼性" },
+  { id: "hero", label: "ヒーロー" },
+  { id: "assurance", label: "3つの安心" },
   { id: "problem", label: "課題" },
-  { id: "solution", label: "解決策" },
-  { id: "demo", label: "デモ" },
+  { id: "scenarios", label: "シナリオ" },
+  { id: "flow", label: "導入の流れ" },
+  { id: "fit", label: "向いている会社" },
+  { id: "comparison", label: "比較" },
   { id: "pricing", label: "価格" },
   { id: "faq", label: "FAQ" },
-  { id: "company", label: "運営会社" },
-  { id: "contact-form", label: "問い合わせ" }
+  { id: "final-cta", label: "問い合わせ" }
 ];
 
 export function StickySectionNav() {
