@@ -27,7 +27,7 @@ export const metadata = {
   openGraph: {
     title: siteMeta.title,
     description: siteMeta.description,
-    images: [{ url: siteMeta.ogImage, width: 1200, height: 630 }],
+    images: [{ url: siteMeta.ogImage, width: 512, height: 512 }],
     locale: "ja_JP",
     type: "website"
   },
