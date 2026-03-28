@@ -11,7 +11,7 @@ export function BenefitSection() {
             <>
               PoC開始までは
               <br className="title-break-desktop" />
-              最短1週間。
+              最短2週間。
             </>
           }
           description="始めやすい、広げやすい、止められる。段階導入を前提に進めます。"
