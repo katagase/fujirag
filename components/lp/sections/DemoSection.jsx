@@ -2,6 +2,8 @@ import { CtaButtons } from "@/components/lp/common/CtaButtons";
 import { SectionHeader } from "@/components/lp/common/SectionHeader";
 import { scenarioItems } from "@/lib/lp-content";
 
+const INTRO_VIDEO_EMBED_URL = "https://www.youtube.com/embed/EDPg9y5UsPo";
+
 export function DemoSection() {
   return (
     <section className="section-block" id="scenarios">
@@ -17,6 +19,19 @@ export function DemoSection() {
           }
           description="法務・品質・人事・情シス・営業・部門横断まで、代表的な6シナリオを用意しています。"
         />
+        <div className="panel video-embed-panel">
+          <p className="label">紹介動画</p>
+          <div className="video-frame">
+            <iframe
+              src={INTRO_VIDEO_EMBED_URL}
+              title="FUJI RAG 紹介動画"
+              loading="lazy"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+            />
+          </div>
+        </div>
         <div className="scenario-grid">
           {scenarioItems.map((item) => (
             <article key={item.title} className="panel scenario-card">

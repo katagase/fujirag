@@ -3,6 +3,8 @@ import { CtaButtons } from "@/components/lp/common/CtaButtons";
 import { LineIcon } from "@/components/lp/common/LineIcon";
 import { heroBadges } from "@/lib/lp-content";
 
+const INTRO_VIDEO_URL = "https://youtu.be/EDPg9y5UsPo?si=mvrbaC80sU3H4osV";
+
 export function HeroSection() {
   return (
     <section className="hero section-block" id="hero">
@@ -30,7 +32,11 @@ export function HeroSection() {
             社内のファイルサーバー（NAS）をそのままAIに接続できます。
           </p>
           <CtaButtons />
-          <p className="hero-linkline">まず5分のデモを見る →</p>
+          <p className="hero-linkline">
+            <a href={INTRO_VIDEO_URL} target="_blank" rel="noopener noreferrer">
+              まず5分のデモを見る →
+            </a>
+          </p>
           <ul className="badge-list">
             {heroBadges.map((badge) => (
               <li key={badge}>{badge}</li>
