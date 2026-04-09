@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { LineIcon } from "@/components/lp/common/LineIcon";
 import { releaseAnnouncement } from "@/lib/lp-content";
 
@@ -16,9 +15,14 @@ export function AnnouncementSection() {
             <h2>{releaseAnnouncement.title}</h2>
             <p className="announcement-description">{releaseAnnouncement.description}</p>
           </div>
-          <Link href="#contact-form" className="cta-button primary">
-            無料デモを申し込む
-          </Link>
+          <a
+            href={releaseAnnouncement.ctaHref}
+            className="cta-button primary"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {releaseAnnouncement.ctaLabel}
+          </a>
         </div>
       </div>
     </section>
